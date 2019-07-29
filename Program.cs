@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace _13._1
-{
-    class Program
+{    
+    class Program 
     {
         static void Main(string[] args)
         {
@@ -39,7 +40,9 @@ namespace _13._1
             team1.Add(new Viper("Viper", 16, 29, 20), getBag());
             team1.Add(new Lich("Lich", 33, 18, 20), getBag());
 
-            foreach(KeyValuePair<Hero, List<Item>> dd in team1)
+            Dictionary<Hero, List<Item>> team2 = new Dictionary<Hero, List<Item>>(team1);
+
+            foreach (KeyValuePair<Hero, List<Item>> dd in team1)
             {
                 Console.WriteLine(dd.Key);
                 foreach(Item ddValue in dd.Value)
@@ -47,6 +50,16 @@ namespace _13._1
                     Console.WriteLine("          " + ddValue);
                 }
             }
-        }
+            Console.WriteLine("----------------------------------");
+            foreach (KeyValuePair<Hero, List<Item>> dd in team2)
+            {
+                Console.WriteLine(dd.Key);
+                foreach (Item ddValue in dd.Value)
+                {
+                    Console.WriteLine("          " + ddValue);
+                }
+            }
+
+        }        
     }
 }
